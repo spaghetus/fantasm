@@ -1,0 +1,5 @@
+CP $text h8000x8 d5x1 d0x1
+loop
+JMP $loop
+text
+data h6265616e73x5

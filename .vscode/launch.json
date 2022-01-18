@@ -1,0 +1,103 @@
+{
+	// Use IntelliSense to learn about possible attributes.
+	// Hover to view descriptions of existing attributes.
+	// For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+	"version": "0.2.0",
+	"configurations": [
+		{
+			"type": "lldb",
+			"request": "launch",
+			"name": "Debug unit tests in library 'fantasm'",
+			"cargo": {
+				"args": [
+					"test",
+					"--no-run",
+					"--lib",
+					"--package=fantasm"
+				],
+				"filter": {
+					"name": "fantasm",
+					"kind": "lib"
+				}
+			},
+			"args": [],
+			"cwd": "${workspaceFolder}"
+		},
+		{
+			"type": "lldb",
+			"request": "launch",
+			"name": "Debug example 'assembler'",
+			"cargo": {
+				"args": [
+					"build",
+					"--example=assembler",
+					"--package=fantasm"
+				],
+				"filter": {
+					"name": "assembler",
+					"kind": "example"
+				}
+			},
+			"args": [],
+			"cwd": "${workspaceFolder}"
+		},
+		{
+			"type": "lldb",
+			"request": "launch",
+			"name": "Debug unit tests in example 'assembler'",
+			"cargo": {
+				"args": [
+					"test",
+					"--no-run",
+					"--example=assembler",
+					"--package=fantasm"
+				],
+				"filter": {
+					"name": "assembler",
+					"kind": "example"
+				}
+			},
+			"args": [],
+			"cwd": "${workspaceFolder}"
+		},
+		{
+			"type": "lldb",
+			"request": "launch",
+			"name": "Debug example 'runtime'",
+			"cargo": {
+				"args": [
+					"build",
+					"--example=runtime",
+					"--package=fantasm"
+				],
+				"filter": {
+					"name": "runtime",
+					"kind": "example"
+				}
+			},
+			"args": [
+				"example.bin"
+			],
+			"cwd": "${workspaceFolder}"
+		},
+		{
+			"type": "lldb",
+			"request": "launch",
+			"name": "Debug unit tests in example 'runtime'",
+			"cargo": {
+				"args": [
+					"test",
+					"--no-run",
+					"--example=runtime",
+					"--package=fantasm"
+				],
+				"filter": {
+					"name": "runtime",
+					"kind": "example"
+				}
+			},
+			"args": [],
+			"cwd": "${workspaceFolder}"
+		}
+	]
+}

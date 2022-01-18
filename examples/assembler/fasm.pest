@@ -1,0 +1,20 @@
+
+MNEMONIC = { ASCII_ALPHA_UPPER+ }
+
+NUMBER = { ASCII_DIGIT+ }
+HEX_NUMBER = { ASCII_HEX_DIGIT+ }
+
+DEC = { "d" ~ NUMBER ~ "x" ~ NUMBER }
+HEX = { "h" ~ HEX_NUMBER ~ "x" ~ NUMBER }
+REF = { "$" ~ LABEL }
+NUM = _{ DEC | HEX | REF }
+
+OPERATION = { MNEMONIC ~ (" " ~ NUM)*}
+DATA = { "data " ~ NUM+ }
+LABEL = { ASCII_ALPHA_LOWER+ }
+COMMENT = _{ "#" ~ (ASCII_ALPHA_LOWER+ | ASCII_ALPHA_UPPER+ | ASCII_DIGIT+ | "-" | "_" | "." | " " | "\t")* }
+
+LINE = _{ (OPERATION | DATA | LABEL | COMMENT) ~ "\n" }
+
+FILE = _{ SOI ~ LINE* ~ EOI }
+
